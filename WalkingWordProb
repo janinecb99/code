@@ -1,0 +1,65 @@
+// walking word problem with different numbers of blocks each time
+#include iostream
+#include cstdlib
+#include ctime
+using namespace std;
+
+void message();
+char again();
+int getNumber();
+void problem(int a, int b);
+int add(int a, int b);
+
+int main()
+{
+char yn = 'y';
+int first, second;
+message();
+srand(static_cast(time(0)));
+do
+{
+first = getNumber();
+second = getNumber();
+problem(first, second);
+yn = again();
+} while(yn == 'y');
+}
+
+void message()
+{
+cout << "Welcome to the walking word problem!\n";
+cout << "Our friend walks several blocks.\n";
+cout << "You get to figure out how many blocks.\n\n";
+}
+
+char again()
+{
+char yn = 'y';
+cout << "\nAgain (y or n)? ";
+cin >> yn;
+return (yn);
+}
+
+int getNumber()
+{
+int num = rand() % 10;
+return num;
+}
+
+int add(int a, int b)
+{
+return (a + b);
+}
+
+void problem(int a, int b)
+{
+int answer;
+cout << "George walked " << a << " blocks east and\n";
+cout << b << " blocks north. How many blocks did\n";
+cout << "George walk in total? ";
+cin >> answer;
+if(answer != add(a, b))
+cout << "\nSorry. George walked " << add(a, b) << " blocks.\n";
+else
+cout << "\nCorrect!\n";
+}
