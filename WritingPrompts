@@ -1,0 +1,74 @@
+// writing prompts using a vector
+#include iostream
+#include vector
+#include string
+#include cstdlib
+#include ctime
+using namespace std;
+
+void message();
+char another();
+
+int main()
+{
+message();
+vector prompts;
+prompts.push_back("Trees and bushes");
+prompts.push_back("Birds and bees");
+prompts.push_back("Keys and locks");
+prompts.push_back("What are you doing?");
+prompts.push_back("The breeze is blowing.");
+prompts.push_back("The squirrels are here.");
+prompts.push_back("Singing and playing");
+prompts.push_back("Hickory, dickory, dock");
+prompts.push_back("Happiness all around");
+prompts.push_back("I am so very happy right now!");
+prompts.push_back("Weekend fun");
+prompts.push_back("Look up in the sky.");
+prompts.push_back("Writing uses imagination.");
+prompts.push_back("Are you listening?");
+prompts.push_back("Play that piano again.");
+prompts.push_back("Here they come now.");
+prompts.push_back("High in the mountains");
+prompts.push_back("Seeing the seashells by the shore.");
+prompts.push_back("Touch the water.");
+prompts.push_back("Pet the cat.");
+prompts.push_back("Go for a walk. What do you find?");
+prompts.push_back("Smell the flowers.");
+prompts.push_back("She wore her favorite scent.");
+prompts.push_back("Hello beautiful!");
+prompts.push_back("Enjoy the train ride.");
+prompts.push_back("Dancing in the dark");
+prompts.push_back("Why do the birds sing?");
+prompts.push_back("We all sing for joy these days.");
+prompts.push_back("Run off that writer's block with posies.");
+srand(static_cast(time(0)));
+int length = prompts.size();
+char answer = 'y';
+do
+{
+int num = rand() % length;
+cout << prompts[num];
+answer = another();
+} while (answer == 'y');
+
+cout << "\nThe list: \n";
+for(int i = 0; i < prompts.size(); i ++)
+   cout << prompts[i] << endl;
+}
+
+void message()
+{
+cout << "Welcome to Random Writing Prompts!\n";
+cout << "Try using the random writing prompt provided.\n";
+cout << "Write your heart out.\n\n";
+}
+
+char another()
+{
+char yn;
+cout << "\nDo you want another (y or n)? ";
+cin >> yn;
+return yn;
+}
+
