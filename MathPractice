@@ -1,4 +1,4 @@
-/ add, subtract, multiply
+// add, subtract, multiply
 #include iostream
 #include cstdlib
 #include ctime
