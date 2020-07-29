@@ -1,0 +1,199 @@
+// This program was created using Visual Studio 2019.
+// SlidesAndLadders.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// This is a ncomputer text based ncomputer game of a board game.
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void message();
+int dieroll();
+
+int main()
+{
+    message();
+    vector<string> board;  // represents squares on playing board
+    vector<int> moves;  // how many automatic square moves for slide or ladder
+    int p1loc = 0;  // player 1 board location index
+    int p2loc = 0;  // player 2 board location index
+    int dieside = 1;  // roll of die
+    string rolling = "roll";
+    // Fill board vector
+    board.push_back("Start Square");
+    board.push_back("Blank Square");
+    board.push_back("Ladder Up 11");
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square");
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Slide Down 5");
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square");
+    board.push_back("Ladder Up 4");
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square");
+    board.push_back("Slide Down 8");
+    board.push_back("Ladder Up 8");
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square"); 
+    board.push_back("Blank Square");
+    board.push_back("Slide Down 4");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Ladder Up 6");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Slide Down 4");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Ladder Up 4");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Slide Down 6");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Blank Square");
+    board.push_back("Finish Square");
+    board.push_back("Finish Square");
+    board.push_back("Finish Square");
+    board.push_back("Finish Square");
+    board.push_back("Finish Square");
+    board.push_back("Finish Square");
+    // Fill moves vector
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(11);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0); 
+    moves.push_back(0); 
+    moves.push_back(0); 
+    moves.push_back(0); 
+    moves.push_back(0);
+    moves.push_back(-5);
+    moves.push_back(0); 
+    moves.push_back(0);
+    moves.push_back(4);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(-8);
+    moves.push_back(8);
+    moves.push_back(0); 
+    moves.push_back(0); 
+    moves.push_back(0); 
+    moves.push_back(0); 
+    moves.push_back(0);
+    moves.push_back(-4);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(6);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(-4);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(4);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(-6);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    moves.push_back(0);
+    cout << "Hello World!\n";
+    do
+    {
+        // Player 1 turn
+        cout << "\n\nPLAYER 1 turn. Type 'roll' to roll the die: ";
+        cin >> rolling;
+        if (rolling == "roll")
+        {
+            dieside = dieroll();
+            cout << "You rolled a " << dieside;
+            p1loc = p1loc + dieside;
+            cout << "\nPlayer 1 is on square " << p1loc;
+            cout << "\nThis square is a " << board[p1loc];
+            p1loc = p1loc + moves[p1loc];
+            cout << "\nPlayer 1 is now on square " << p1loc;
+        }
+        else
+        {
+            cout << "You did not type roll.\n";
+        }
+        // Player 2 turn
+        cout << "\n\nPLAYER 2 turn. Type 'roll' to roll the die: ";
+        cin >> rolling;
+        if (rolling == "roll")
+        {
+            dieside = dieroll();
+            cout << "You rolled a " << dieside;
+            p2loc = p2loc + dieside;
+            cout << "\nPlayer 2 is on square " << p2loc;
+            cout << "\nThis square is a " << board[p2loc];
+            p2loc = p2loc + moves[p2loc];
+            cout << "\nPlayer 2 is now on square " << p2loc;
+        }
+        else
+        {
+            cout << "You did not type roll.\n";
+        }
+        
+    } while (p1loc < 50 && p2loc < 50);
+    if (p1loc >= 50)
+        cout << "\n\nPLAYER 1 wins!\n";
+    if (p2loc >= 50)
+        cout << "\n\nPLAYER 2 wins!\n";
+    if (p1loc >= 50 && p2loc >= 50)
+        cout << "\n\nBOTH players win!\n";
+}
+
+void message()
+{
+    cout << "\tWelcome to Slides And Ladders\n";
+    cout << "This is a text based computer game based on a board game.\n";
+    cout << "This is a two player game. Type 'roll' to roll the die on your turn.\n";
+    cout << "Player 1 goes first.\n\n";
+}
+
+int dieroll()
+{
+    srand(static_cast<unsigned int>(time(0)));
+    int rolled = (rand() % 6) + 1;
+    return rolled;
+}
