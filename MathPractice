@@ -1,0 +1,127 @@
+/ add, subtract, multiply
+#include iostream
+#include cstdlib
+#include ctime
+using namespace std;
+
+void message();
+int getChoice();
+int getNumber();
+void add();
+void subtract();
+void multiply();
+void divide();
+
+int main()
+{
+srand(static_cast(time(0))); // seeds rand funct
+char yn = 'y';
+message();
+do
+{
+int option;
+option = getChoice();
+switch(option)
+{
+case 1:
+add();
+break;
+case 2:
+subtract();
+break;
+case 3:
+multiply();
+break;
+case 4:
+divide();
+break;
+default:
+cout << "Sorry. That's not an option.\n";
+}
+cout << "\nAgain? (y or n)";
+cin >> yn;
+} while(yn == 'y');
+return 0;
+}
+
+void message()
+{
+cout << "Welcome to Math Practice!\n\n";
+cout << "Practice as much as you want.\n";
+cout << "The computer doesn't get tired of doing math.\n\n";
+}
+
+int getChoice()
+{
+int choice;
+cout << "Do you want to add, subtract, multiply or divide?\n";
+cout << "1 - Add\n";
+cout << "2 - Subtract\n";
+cout << "3 - Multiply\n";
+cout << "4 - Divide\n";
+cin >> choice;
+return (choice);
+}
+
+int getNumber()
+{
+int number;
+number = rand() % 10;
+return (number);
+}
+
+void add()
+{
+int a = getNumber();
+int b = getNumber();
+int response;
+cout << "\n\nWhat is " << a << " + " << b << " ? ";
+cin >> response;
+if(response == (a + b))
+cout << "\nCorrect!\n";
+else
+cout << "\nSorry. " << a << " + " << b << " = " << (a + b);
+}
+
+void subtract()
+{
+int a = getNumber();
+int b = getNumber();
+int response;
+cout << "\n\nWhat is " << a << " - " << b << " ? ";
+cin >> response;
+if(response == (a - b))
+cout << "\nCorrect!\n";
+else
+cout << "\nSorry. " << a << " - " << b << " = " << (a - b);
+}
+
+void multiply()
+{
+int a = getNumber();
+int b = getNumber();
+int response;
+cout << "\n\nWhat is " << a << " x " << b << " ? ";
+cin >> response;
+if(response == (a * b))
+cout << "\nCorrect!\n";
+else
+cout << "\nSorry. " << a << " x " << b << " = " << (a * b);
+}
+
+void divide()
+{
+int a = getNumber();
+int b = getNumber();
+a = a + 1;
+b = b + 1;
+int c = a * b;
+int response;
+cout << "\n\nWhat is " << c << " / " << a << " ? ";
+cin >> response;
+if(response == (c / a))
+cout << "\nCorrect!\n";
+else
+cout << "\nSorry. " << c << " / " << a << " = " << (c / a);
+}
+
