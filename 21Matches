@@ -1,0 +1,56 @@
+// 21 matches game
+// take one, two or three matches from the pile
+// the one who takes the last match wins
+#include iostream
+using namespace std;
+
+void message();
+int getTurnChoice();
+
+int main()
+{
+int pile = 21; // number of matches to dwindle
+int choice;
+message();
+do
+{
+choice = getTurnChoice();
+while(choice < 1 || choice > 3)
+{
+cout << "Not a valid choice. Try again.\n";
+choice = getTurnChoice();
+}
+pile = pile - choice;
+if(pile == 0)
+{
+cout << "You win!\n";
+break;
+}
+cout << "The pile has " << pile << " matches left.\n";
+cout << "The computer takes 1 match.\n";
+pile = pile - 1;
+if(pile == 0)
+{
+cout << "The computer wins!\n";
+break;
+}
+cout << "The pile has " << pile << " matches left.\n";
+} while(pile > 0);
+return 0;
+}
+
+void message()
+{
+cout << "Welcome to 21 Matches!\n\n";
+cout << "Rules: Take 1, 2 or 3 matches from the pile\n";
+cout << "on each turn. Win by taking the last match.\n\n";
+cout << "The pile starts with 21 matches.\n";
+}
+
+int getTurnChoice()
+{
+int howMany;
+cout << "How many matches do you want? (1, 2 or 3) ";
+cin >> howMany;
+return (howMany);
+}
