@@ -1,0 +1,19 @@
+# This program was done with VS Code with Python extension.
+# madlib.py
+# This program does a simulatio9n of the paper MadLibs.
+
+print("\nThis is a computerized version of a MadLib.")
+
+adjective1 = input("Enter an adjective: ")
+noun1 = input("Enter a noun: ")
+noun2 = input("Enter another noun: ")
+food1 = input("Enter a food: ")
+adjective2 = input("Enter another adjective: ")
+verb1 = input("Enter a verb (past tense): ")
+
+print("/nThe Story")
+print("The " + adjective1 + " boy ran down the " + noun1 + " to find his " + noun2 + ".")
+print("His " + noun2 + " had a book and some " + food1 + " to share.")
+print("The two kids sat together teaching each other how to read.")
+print(adjective2 + " years later the kids " + verb1 + " into teachers,")
+print("so now they teach all sorts of kids how to read. Yay!")
